@@ -21,7 +21,6 @@ def get_student_by_github(github):
         """
     db_cursor.execute(QUERY, (github,))
     first, last, github = db_cursor.fetchone()
-    print "Student: %s %s\nGithub account: %s" % (first, last, github)
     return (first, last, github)
 
 
@@ -36,7 +35,7 @@ def make_new_student(first_name, last_name, github):
     db_cursor.execute(QUERY, (first_name, last_name, github))
     db_connection.commit()
     print "Successfully added student: %s %s" % (first_name, last_name)
-
+    return (first_name, last_name, github)
 
 def get_project_by_title(title):
     """Given a project title, print information about the project."""
